@@ -1,5 +1,6 @@
 name: My Workflow File
 on:
+ pull_request: 
  push:
    branches: [main]
 jobs:
@@ -26,9 +27,9 @@ jobs:
       run:
        python --version
     - name: install dependencies
-      run:
+      run: 
        python -m pip install --upgrade pip
-       if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+       if [ -f requirements.txt]; then pip install -r requirements.txt; fi
       
        
      
