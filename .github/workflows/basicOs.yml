@@ -11,3 +11,11 @@ jobs:
     - name: greeting steps
       run:
        echo "Hello there"
+    - name: Checkout my codes
+      uses: actions/checkout@v4
+    - name: Print and list out content of repo
+      run:
+       ls
+        echo Hello There!
+     
+     
