@@ -16,6 +16,5 @@ jobs:
     - name: Print and list out content of repo
       run:
        ls
-        echo "Hello There!"
      
      
