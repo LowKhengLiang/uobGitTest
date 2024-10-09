@@ -1,1 +1,13 @@
-
+name: My Workflow File
+on:
+ push:
+   branches: [main]
+jobs:
+ builds:
+   #Create VM with ubuntu OS
+   runs-on: ubuntu-16.04
+   steps:
+   # 1st step to say hello
+    - name: greeting steps
+      run:
+       echo "Hello there"
