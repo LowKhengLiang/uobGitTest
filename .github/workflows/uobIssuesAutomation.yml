@@ -36,19 +36,19 @@ jobs:
        pytest -v -cov --junitxml=report.xml
 
     # this is where we access the hidden repo
-    - name: Checkout hidden repo
-      uses: actions/checkout@v4
-      with:
-       repository: LowKhengLiang/UOBHidden
-       path: hiddenfolder
-       token: ${{ secrets.SECRETUOB }}
+    # - name: Checkout hidden repo
+    #   uses: actions/checkout@v4
+    #   with:
+    #    repository: LowKhengLiang/UOBHidden
+    #    path: hiddenfolder
+    #    token: ${{ secrets.SECRETUOB }}
 
     #this prints out a hidden file
-    - name: print out hidden
-      run: |
-       ls
-       cd hiddenfolder
-       ls
+    # - name: print out hidden
+    #   run: |
+    #    ls
+    #    cd hiddenfolder
+    #    ls
 
     - name: discord-action
       uses: sebastianpopp/discord-action@v2.0
