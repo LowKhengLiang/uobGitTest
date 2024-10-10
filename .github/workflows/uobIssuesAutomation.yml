@@ -49,3 +49,11 @@ jobs:
        ls
        cd hiddenfolder
        ls
+
+    - name: discord-action
+      uses: sebastianpopp/discord-action@v2.0
+      with:
+       webhook: ${{ secrets.DISCORD_WEBHOOK }}
+       message: ${{ github.repository }} has been successfullly deployed.
+      
+     
