@@ -1,1 +1,52 @@
+name: My Second Workflow
+on:
+ pull_request: 
+   branches: [main]
+jobs:
+ builds2:
+   #Create VM with ubuntu OS
+   runs-on: ubuntu-20.04
+   steps:
+   # 1st step to say hello
+    - name: greeting steps
+      run:
+       echo "Hello there"
+       # This is where i checkout my codes
+    - name: Checkout my codes
+      uses: actions/checkout@v4
+    - name: Print and list out content of repo
+      run:
+       ls
+      #This is where i install python
+    - name: Installing Python
+      uses: actions/setup-python@v5
+      with:
+       python-version: '3.10'
+    - name: check version of python
+      run:
+       python --version
+    - name: install dependencies
+      run: |
+       python -m pip install --upgrade pip
+       if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+       pip install pytest pytest-cov
+    #begin test
+    - name: begin test
+      run: |
+       pytest -v -cov --junitxml=report.xml
 
+    # this is where we access the hidden repo
+    - name: Checkout hidden repo
+      uses: actions/checkout@v4
+      with:
+       repository: LowKhengLiang/UOBHidden
+       path: hiddenfolder
+       token: ${{ secrets.SECRETUOB }}
+
+    #this prints out a hidden file
+    - name: print out hidden
+      run: |
+       ls
+       cd hiddenfolder
+       ls
+     
