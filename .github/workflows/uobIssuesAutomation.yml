@@ -55,5 +55,5 @@ jobs:
       if: always()
       with:
         files: |
-          report.xml
+          junit_files: "report.xml"
      
